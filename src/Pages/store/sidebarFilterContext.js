@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const SidebarFilterContext = React.createContext({
   onSearchInputChange: () => {},
-  filteredProductsByRating: [],
+  filteredProducts: [],
 
   onRatingChange: () => {},
   onPriceChange: () => {},
@@ -168,7 +168,7 @@ export const SidebarFilterContextProvider = (props) => {
        
         isLoading: isLoading,
         onSearchInputChange: setSearchTerm,
-        filteredProductsByRating: filterProduct,
+        filteredProducts: filterProduct,
         
         onRatingChange: handleRatingChange,
         onPriceChange: handlePriceChange,

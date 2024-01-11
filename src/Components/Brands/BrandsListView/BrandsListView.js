@@ -12,7 +12,7 @@ const BrandsListView = () => {
 
     const ctx = useContext(SidebarFilterContext);
   // Use useMemo to memoize the filtered products array
-    const reversedBrands = useMemo(() => ctx.filteredProductsByRating, [ctx.filteredProductsByRating]);   
+    const reversedBrands = useMemo(() => ctx.filteredProducts, [ctx.filteredProducts]);   
   const loading = ctx.isLoading 
 
   const filteredProducts = reversedBrands.slice().reverse();
