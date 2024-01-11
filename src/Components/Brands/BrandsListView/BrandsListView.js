@@ -5,10 +5,6 @@ import SidebarFilterContext from '../../../Pages/store/sidebarFilterContext';
 import StarRating from '../../DashBoard/StarRating/StarRating';
 import { useContext,useMemo } from 'react';
 
-// import { Link } from 'react-router-dom';
-// import { Loader } from '../../../components/loader';
-
-
 import commonimagepath from "../../../Components/commonimagepath/commonimagepath"
 
 
