@@ -16,7 +16,7 @@ const BrandsGridView = () => {
   const loading = ctx.isLoading 
 
   const filteredProducts = reversedBrands.slice().reverse();
-  console.log(filteredProducts)
+
 
  
   return (

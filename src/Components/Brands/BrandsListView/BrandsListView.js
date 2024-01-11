@@ -161,6 +161,7 @@ const BrandsListView = () => {
                                     <div className="item_rev">
                                         <img src={BrandListView.images} alt="Logobrnd" />
                                         <div className="retailer_list_rating">
+                                        <div className="item_data">
                                             <h3 className="m-0">{BrandListView.brand_name}<sub>(824 reviews)</sub></h3>
                                          
                                             {/* <img src={commonimagepath("star.png")} alt="Logobrnd" /> */}
@@ -169,6 +170,7 @@ const BrandsListView = () => {
                       <StarRating rating={BrandListView.rating} />{" "}
                       <span>{BrandListView.rating}</span>
                     </p>
+                    </div>
                                         </div>
                                         </div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="19"

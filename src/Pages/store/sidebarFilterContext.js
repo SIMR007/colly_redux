@@ -43,7 +43,6 @@ export const SidebarFilterContextProvider = (props) => {
           ...responseData[key],
         }));
 
-        console.log("dataArray",dataArray)
         setData(dataArray);
       } catch (error) {
         console.error("Error fetching data:", error.message);
