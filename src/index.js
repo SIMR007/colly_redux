@@ -4,12 +4,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { SidebarFilterContextProvider } from "./Pages/store/sidebarFilterContext";
+import { Provider } from "react-redux";
+import store from "./Pages/store";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <SidebarFilterContextProvider>
+  <Provider store={store}>        {/**here we are using the redux store  */}
+  {/* <SidebarFilterContextProvider> */}
     <App />
-  </SidebarFilterContextProvider>
+  {/* </SidebarFilterContextProvider> */}
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -4,26 +4,22 @@ import SidebarFilterContext from '../../../Pages/store/sidebarFilterContext';
 
 import StarRating from '../../DashBoard/StarRating/StarRating';
 import { useContext,useMemo } from 'react';
-
+import { useSelector } from 'react-redux';
 import commonimagepath from "../../../Components/commonimagepath/commonimagepath"
 
 
 const BrandsListView = () => {
-
-    const ctx = useContext(SidebarFilterContext);
-  // Use useMemo to memoize the filtered products array
-    const reversedBrands = useMemo(() => ctx.filteredProducts, [ctx.filteredProducts]);   
-  const loading = ctx.isLoading 
-
-  const filteredProducts = reversedBrands.slice().reverse();
-
+    const brands  =  useSelector(state => state.filterBrands.data)
+    // const loading  =  useSelector(state => state.filterBrands.isLoading)
+     const reversedBrands = useMemo(() => brands, [brands]);
+      const filteredProducts = reversedBrands.slice().reverse();
 
   return (
     <div className="">
         {filteredProducts.map((BrandListView) => (
 
       
-                    <div className="retailer_list_viwe">
+                    <div className="retailer_list_viwe" key={BrandListView.id}>
                         <div className="row">
                             <div className="col-md-4 p-0">
                                 <div className="retailer_list_Reviews">

@@ -16,9 +16,15 @@ import FormToPostRetailCategory from "./Admin/FormToPostRetailCategory/FormToPos
 
 // import UserLoggedIn from "./Pages/Users/UserProfile/UserProfile";
 import UserProfile from "./Pages/Users/UserProfile/UserProfile";
-
+import { fetchBrandData } from "./Pages/store/filterBrandActions";
+// import { fetchBrandData } from "./Pages/store/filterBrand-slice";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 function App() {
+
+
+
   return (
     <>
       <>

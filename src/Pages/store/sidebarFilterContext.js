@@ -47,7 +47,7 @@ export const SidebarFilterContextProvider = (props) => {
       } catch (error) {
         console.error("Error fetching data:", error.message);
       } finally {
-        setIsLoading(false);
+        setIsLoading(false);    
       }
     }
     fetchData();
