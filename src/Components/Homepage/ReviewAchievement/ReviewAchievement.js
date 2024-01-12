@@ -2,7 +2,7 @@ import React from "react";
 import commonimagepath from "../../../Components/commonimagepath/commonimagepath"
 
 const ReviewAchievement = () => {
-  return (
+  return (  
     <section className="Review">
       <div className="container_x">
         <div className="row  align-items-center">
