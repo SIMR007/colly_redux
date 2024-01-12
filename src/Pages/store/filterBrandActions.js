@@ -19,15 +19,15 @@ export const fetchBrandData  =  () => {
                   ...responseData[key],
                 }));
                 
-                dispatch(filterBrandActions.showBrands({brandData:[],loading:false}))
+                // dispatch(filterBrandActions.showBrands({brandData:[],loading:false}))
+                dispatch(filterBrandActions.showBrands( {brandData:dataArray,loading:false}))
               return dataArray ;
-                    
+                
         }
 
         try {
              const fetchedBrands =  await fetchData()
              console.log("fetchedBrands via redux ", fetchedBrands)
-             dispatch(filterBrandActions.showBrands( {brandData:fetchedBrands}))
 
              
         } catch (error) {

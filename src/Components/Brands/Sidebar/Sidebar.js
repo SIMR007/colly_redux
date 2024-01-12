@@ -260,7 +260,7 @@ const Sidebar = () => {
   // const ctx = useContext(SidebarFilterContext);
   const [searchBrand, setSearchBrand] = useState("");
   // const [priceChange, setPriceChange] = useState();
-  // const [rating, setRating] = useState();
+  const [rating, setRating] = useState();
   // const [location, setLocation] = useState("");
   // const [categories, setCategories] = useState("");
 
@@ -276,7 +276,9 @@ const Sidebar = () => {
   };
 
   const handleRatingChange = (event) => {
-    // setRating(event.target.value);
+    setRating(event.target.value);
+    dispatch(filterBrandActions.onRatingChange(event.target.value))
+    console.log(event.target.value)
     // ctx.onRatingChange(event.target.value);
   };
 
@@ -364,7 +366,7 @@ const Sidebar = () => {
           <span>
             <a
               href="javascript:void(0)"
-              // value={rating}
+              value={rating}
               onClick={clearRatingHandler}
             >
               Clear All{" "}
@@ -377,7 +379,7 @@ const Sidebar = () => {
           id="rating"
           min={1}
           max={5}
-          // value={rating}
+          value={rating}
           className="rating-bar"
           onChange={handleRatingChange}
         />

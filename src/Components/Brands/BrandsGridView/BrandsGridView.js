@@ -113,27 +113,26 @@ import { useSelector,useDispatch } from 'react-redux';
 import { fetchBrandData } from '../../../Pages/store/filterBrandActions';
 
 const BrandsGridView = () => {
-// const brands  =  useSelector(state => state.filterBrands.data)
-const filteredBrands = useSelector((state) => state.filterBrands.filteredBrands);
+  const dispatch = useDispatch();
 
-console.log("ff",filteredBrands); 
-const loading  =  useSelector(state => state.filterBrands.isLoading)
-// console.log(brands)
-  // Use useMemo to memoize the filtered products array
-    const reversedBrands = useMemo(() => filteredBrands, [filteredBrands]);   
-  const filteredProducts = reversedBrands.slice().reverse();
+  // Fetch data when the component mounts
+  useEffect(() => {
+    dispatch(fetchBrandData());
+  }, [dispatch]);
 
-  const dispatch = useDispatch()
+  // Select data from the Redux store
+  const filteredBrands = useSelector((state) => state.filterBrands.filteredBrands);
+  const loading = useSelector((state) => state.filterBrands.isLoading);
 
-  useEffect(()=>{
-    dispatch(fetchBrandData())    //  fetching data from the firebase via redux 
-  },[dispatch])
-
+  // Check if data is available
+  if (loading) {
+    return <Loader />;
+  }
   
   return (
     
         <div className='row'>
-         {loading ? <Loader/> :   filteredProducts.map((product) => (
+         {loading ? <Loader/> :   filteredBrands.map((product) => (
           <div className="col-md-6 col-lg-4 mt-4" key={product.id}>
             <div className="filter_item">
               <div className="item_head">
