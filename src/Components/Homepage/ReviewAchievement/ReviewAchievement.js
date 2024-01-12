@@ -17,14 +17,14 @@ const ReviewAchievement = () => {
           </div>
           <div className="col-md-6">
             <div className="Review_img">
-              <img src={commonimagepath("review_img.png")} />
+              <img src={commonimagepath("review_img.png")} alt="review_img.png" />
             </div>
           </div>
         </div>
         <div className="row my-4 Reviews_home align-items-center">
           <div className="col-md-6 d-sm-block d-none">
             <div className="Review_img">
-              <img src={commonimagepath("review_2.png")} />
+              <img src={commonimagepath("review_2.png")} alt="review_2.png" />
             </div>
           </div>
           <div className="col-md-6 Review_right">
@@ -39,7 +39,7 @@ const ReviewAchievement = () => {
           </div>
           <div className="col-md-6 d-sm-none d-block">
             <div className="Review_img">
-              <img src={commonimagepath("review_2.png")} />
+              <img src={commonimagepath("review_2.png")} alt="review_2.png"/>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@ const ReviewAchievement = () => {
           </div>
           <div className="col-md-6">
             <div className="Review_img">
-              <img src={commonimagepath("review_3.png")} />
+              <img src={commonimagepath("review_3.png")} alt="review_3.png"/>
             </div>
           </div>
         </div>

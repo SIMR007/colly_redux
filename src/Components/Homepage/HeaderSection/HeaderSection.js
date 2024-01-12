@@ -15,7 +15,7 @@ const HeaderSection = () => {
             </p>
             <div className="btn_search">
               {/* <i className="fa-solid fa-magnifying-glass" /> */}
-              <button><img src={commonimagepath('Img_s.png')} /> BRAND SEARCH</button>
+              <button><img src={commonimagepath('Img_s.png')} alt='Img_s.png'/> BRAND SEARCH</button>
               
               <button className="join_btn">JOIN NOW</button>
             </div>

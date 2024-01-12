@@ -29,7 +29,8 @@ const GettingLoginFormData = () => {
 
         if (authenticatedUser) {
           // User is authenticated; you can navigate to the UserLoggedIn page or perform other actions
-          const { id, Email } = authenticatedUser;
+          // const { id, Email } = authenticatedUser;
+          const { id } = authenticatedUser;
 
           // Store user information in localStorage
           localStorage.setItem("userId", id);

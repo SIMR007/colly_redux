@@ -123,7 +123,7 @@ const FormSignup = (props) => {
             <div className="new_user pb-0">
               <p className="text-left">Social Sign Up</p>
               <div className="reg_btn_group">
-                <a href="#">
+                <Link to="#">
                   <div className="under_box">
                     <img
                       src={commonimagepath("google.png")}
@@ -134,7 +134,7 @@ const FormSignup = (props) => {
                   <span>
                     <i className="fa fa-angle-right" aria-hidden="true"></i>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
             <form onSubmit={formShowStep1Handler}>
@@ -185,7 +185,7 @@ const FormSignup = (props) => {
               <div className="form-group">
                 <input type="checkbox" required />
                 <span className="ms-2">
-                  Agree to Our <a style={{textDecoration:"underline"}} href="#">terms and Conditions</a>
+                  Agree to Our <Link style={{textDecoration:"underline"}} to="#">terms and Conditions</Link>
                 </span>
               </div>
 
@@ -243,17 +243,17 @@ const FormSignup = (props) => {
                 ref={ProfileImageInput}
               />
 
-              {!profileImagePreview ? <a
+              {!profileImagePreview ? <Link
                 className="btn btn-secondary btn-lg btn-block mb-4 btn btn-dark rounded-pill"
                 onClick={formShowStep3Handler}
               >
                 CONTINUE WITHOUT PROFILE
-              </a> : <a
+              </Link> : <Link
                 className="btn btn-secondary btn-lg btn-block mb-4 btn btn-dark rounded-pill"
                 onClick={formShowStep3Handler}
               >
                 CONTINUE
-              </a>}
+              </Link>}
 
               <p className="user_reg mb-0 mt-4">
                 Already registered? <Link to="/FormLogin">Login</Link>

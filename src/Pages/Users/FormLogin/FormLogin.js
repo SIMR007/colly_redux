@@ -53,7 +53,7 @@ const FormLogin = (props) => {
               />
             </div>
             <div className="form-group">
-              <a href="#">Forgot Password?</a>
+              <Link to="#">Forgot Password?</Link>
             </div>
             <input type="submit" name="submit" value="CONTINUE" />
           </form>
@@ -62,7 +62,7 @@ const FormLogin = (props) => {
               New User? <Link to="/FormSignup">Register</Link>
             </p>
             <div className="reg_btn_group">
-              <a href="#">
+              <Link to="#">
                 <div className="under_box">
                   <img src={commonimagepath("google.png")} alt={"googleLogo"} />{" "}
                   Continue with Google
@@ -70,7 +70,7 @@ const FormLogin = (props) => {
                 <span>
                   <i className="fa fa-angle-right" aria-hidden="true"></i>
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
