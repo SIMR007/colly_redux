@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialState = {
   data: [],
   isLoading: false,
@@ -45,13 +46,9 @@ const filterBrandSlice = createSlice({
       console.log("rating", rating);
       console.log("state.selectedRating", state.selectedRatings);
 
-      if (state.selectedRatings.includes(rating)) {
-        // If rating exists, filter it out
-        state.selectedRatings.filter((r) => r !== rating);
-      } else {
-        // If rating doesn't exist, add it
-        state.selectedRatings.push(rating);
-      }
+      state.selectedRatings = state.selectedRatings.includes(rating)
+        ? state.selectedRatings.filter((r) => r !== rating)
+        :  state.selectedRatings=[rating];
 
       // Filter brands based on selected ratings
       state.filteredBrands = state.data.filter((product) => {
@@ -62,7 +59,10 @@ const filterBrandSlice = createSlice({
         return state.selectedRatings.includes(product.rating);
       });
     },
-    onPriceChange(state, action) {},
+    onPriceChange(state, action) {
+      state.priceRange = action.payload
+      console.log(state.priceRange)
+    },
     onLocationChange(state, action) {},
     onCategoriesChange(state, action) {},
 },

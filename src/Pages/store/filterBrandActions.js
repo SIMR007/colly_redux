@@ -26,9 +26,11 @@ export const fetchBrandData  =  () => {
         }
 
         try {
-             const fetchedBrands =  await fetchData()
-             console.log("fetchedBrands via redux ", fetchedBrands)
-
+             const data =  await fetchData()
+             console.log("fetchedBrands via redux ", data)
+            let filterProduct = data
+            console.log("filterProduct",filterProduct)
+            dispatch(filterBrandActions.onPriceChange(10))
              
         } catch (error) {
             console.log(error.message)
@@ -36,3 +38,4 @@ export const fetchBrandData  =  () => {
 
     }
 }
+

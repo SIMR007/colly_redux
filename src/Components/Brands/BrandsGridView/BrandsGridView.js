@@ -111,7 +111,6 @@ import { Loader } from '../../../Components//Loader/Loader';
 import commonimagepath from "../../../Components/commonimagepath/commonimagepath"
 import { useSelector,useDispatch } from 'react-redux';
 import { fetchBrandData } from '../../../Pages/store/filterBrandActions';
-
 const BrandsGridView = () => {
   const dispatch = useDispatch();
 
