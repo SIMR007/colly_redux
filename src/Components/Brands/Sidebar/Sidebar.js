@@ -259,10 +259,10 @@ const Sidebar = () => {
   // const searchBrand =  useSelector(state => state.filterBrands.searchTerm)
   // const ctx = useContext(SidebarFilterContext);
   const [searchBrand, setSearchBrand] = useState("");
-  // const [priceChange, setPriceChange] = useState();
+  const [priceChange, setPriceChange] = useState();
   const [rating, setRating] = useState();
-  // const [location, setLocation] = useState("");
-  // const [categories, setCategories] = useState("");
+  const [location, setLocation] = useState("");
+  const [categories, setCategories] = useState("");
 
   const searchHandler = (event) => {
     setSearchBrand(event.target.value);
@@ -288,7 +288,8 @@ const Sidebar = () => {
   };
 
   const handlePriceChange = (event) => {
-    // setPriceChange(event.target.value);
+    setPriceChange(event.target.value);
+    dispatch(filterBrandActions.onPriceChange(event.target.value))
     // ctx.onPriceChange(event.target.value);
   };
 
@@ -298,7 +299,8 @@ const Sidebar = () => {
   };
 
   const handleLocationChange = (event) => {
-    // setLocation(event.target.value);
+    setLocation(event.target.value);
+    dispatch(filterBrandActions.onLocationChange(event.target.value))
     // ctx.onLocationChange(event.target.value);
   };
 
@@ -308,7 +310,8 @@ const Sidebar = () => {
   };
 
   const handleCategoryChange = (event) => {
-    // setCategories(event.target.value);
+    setCategories(event.target.value);
+    dispatch(filterBrandActions.onCategoriesChange(event.target.value))
     // ctx.onCategoriesChange(event.target.value);
   };
 
@@ -394,7 +397,7 @@ const Sidebar = () => {
           <span>
             <a
               href="javascript:void(0)"
-              // value={priceChange}
+              value={priceChange}
               onClick={clearPriceHandler}
             >
               Clear All
@@ -405,7 +408,7 @@ const Sidebar = () => {
         <div className="rating-bar-1">
         <input
           type="range"
-          // value={priceChange}
+          value={priceChange}
           className="rating-bar"
           min={1}
           max={3}
@@ -423,7 +426,7 @@ const Sidebar = () => {
           <span>
             <a
               href="javascript:void(0)"
-              // value={location}
+              value={location}
               onClick={clearLocationHandler}
             >
               Clear All
@@ -432,7 +435,7 @@ const Sidebar = () => {
         </h1>
         <select
           className="form-control"
-          // value={location}
+          value={location}
           onChange={handleLocationChange}
         >
           <option value="" disabled selected>
@@ -455,7 +458,7 @@ const Sidebar = () => {
           <span>
             <a
               href="javascript:void(0)"
-              // value={categories}
+              value={categories}
               onClick={clearRetailCategoriesHandler}
             >
               Clear All
@@ -464,7 +467,7 @@ const Sidebar = () => {
         </h1>
         <select
           className="form-control"
-          // value={categories}
+          value={categories}
           onChange={handleCategoryChange}
         >
           <option value="" disabled selected>
