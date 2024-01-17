@@ -9,7 +9,8 @@ import commonimagepath from "../../../Components/commonimagepath/commonimagepath
 
 
 const BrandsListView = () => {
-    const brands  =  useSelector(state => state.filterBrands.data)
+      
+    const brands  =  useSelector(state => state.filterBrands.filteredBrands)
     // const loading  =  useSelector(state => state.filterBrands.isLoading)
      const reversedBrands = useMemo(() => brands, [brands]);
       const filteredProducts = reversedBrands.slice().reverse();

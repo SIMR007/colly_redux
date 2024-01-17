@@ -1,5 +1,6 @@
 import React from "react";
 import commonimagepath from "../../../Components/commonimagepath/commonimagepath"
+import { Link } from "react-router-dom";
 
 const TBD_News = () => {
   return (
@@ -44,7 +45,7 @@ const TBD_News = () => {
           </div>
           <div className="col-md-12">
             <div className="news_btn">
-              <a href="#">view more</a>
+              <Link to="#">view more</Link>
             </div>
           </div>
         

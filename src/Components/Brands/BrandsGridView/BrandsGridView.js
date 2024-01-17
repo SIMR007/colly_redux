@@ -104,36 +104,34 @@
 // ----------------------implementing same logic via redux ---------------------
 import React from 'react'
 import StarRating from '../../DashBoard/StarRating/StarRating';
-import {useMemo,useEffect } from 'react';
+import {useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
 import { Loader } from '../../../Components//Loader/Loader';
 import commonimagepath from "../../../Components/commonimagepath/commonimagepath"
 import { useSelector,useDispatch } from 'react-redux';
 import { fetchBrandData } from '../../../Pages/store/filterBrandActions';
-
 const BrandsGridView = () => {
-// const brands  =  useSelector(state => state.filterBrands.data)
-const filteredBrands = useSelector((state) => state.filterBrands.filteredBrands);
+  const dispatch = useDispatch();
+  const filterBrandsState = useSelector(state => state.filterBrands)
 
-console.log("ff",filteredBrands); 
-const loading  =  useSelector(state => state.filterBrands.isLoading)
-// console.log(brands)
-  // Use useMemo to memoize the filtered products array
-    const reversedBrands = useMemo(() => filteredBrands, [filteredBrands]);   
-  const filteredProducts = reversedBrands.slice().reverse();
+  // Select data from the Redux store
+  const filteredBrands = useSelector((state) => state.filterBrands.filteredBrands);
+  const loading = useSelector((state) => state.filterBrands.isLoading);
 
-  const dispatch = useDispatch()
+  // Fetch data when the component mounts
+  useEffect(() => {
+    if(filterBrandsState.changed){
+      dispatch(fetchBrandData());
+    }
+  }, [dispatch]);
 
-  useEffect(()=>{
-    dispatch(fetchBrandData())    //  fetching data from the firebase via redux 
-  },[dispatch])
 
-  
+
   return (
     
         <div className='row'>
-         {loading ? <Loader/> :   filteredProducts.map((product) => (
+         {loading ? <Loader/> :   filteredBrands.map((product) => (
           <div className="col-md-6 col-lg-4 mt-4" key={product.id}>
             <div className="filter_item">
               <div className="item_head">
