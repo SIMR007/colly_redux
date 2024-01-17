@@ -256,16 +256,25 @@ import { filterBrandActions } from "../../../Pages/store/filterBrand-slice";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  // const searchBrand =  useSelector(state => state.filterBrands.searchTerm)
   // const ctx = useContext(SidebarFilterContext);
-  const [searchBrand, setSearchBrand] = useState("");
-  const [priceChange, setPriceChange] = useState();
-  const [rating, setRating] = useState();
-  const [location, setLocation] = useState("");
-  const [categories, setCategories] = useState("");
+
+  // const [searchBrand, setSearchBrand] = useState("");
+  // const [priceChange, setPriceChange] = useState();
+  // const [rating, setRating] = useState();
+  // const [location, setLocation] = useState("");
+  // const [categories, setCategories] = useState("");
+  
+  
+  const searchBrand =  useSelector(state => state.filterBrands.searchTerm)
+  const rating  =  useSelector(state => state.filterBrands.selectedRatings)
+  const priceChange  =  useSelector(state => state.filterBrands.priceRange)
+  const location  =  useSelector(state => state.filterBrands.selectedLocation)
+  const categories  =  useSelector(state => state.filterBrands.selectedCategories)
+
+
 
   const searchHandler = (event) => {
-    setSearchBrand(event.target.value);
+    // setSearchBrand(event.target.value);
     // ctx.onSearchInputChange(event.target.value);
     dispatch(filterBrandActions.onSearchInputChange(event.target.value))
   };
@@ -273,59 +282,65 @@ const Sidebar = () => {
   const clearSearchHandler = (event) => {
     // setSearchBrand("");
     // ctx.onSearchInputChange("");
+    dispatch(filterBrandActions.onSearchInputChange(""))
   };
 
   const handleRatingChange = (event) => {
-    setRating(event.target.value);
-    dispatch(filterBrandActions.onRatingChange(event.target.value))
-    console.log(event.target.value)
+    // setRating(event.target.value);
     // ctx.onRatingChange(event.target.value);
+    dispatch(filterBrandActions.onRatingChange(event.target.value))
+    
   };
 
   const clearRatingHandler = () => {
     // setRating("");
     // ctx.clearRating([]);
+    dispatch(filterBrandActions.clearRating([]))
   };
 
   const handlePriceChange = (event) => {
-    setPriceChange(event.target.value);
-    dispatch(filterBrandActions.onPriceChange(event.target.value))
+    // setPriceChange(event.target.value);
     // ctx.onPriceChange(event.target.value);
+    dispatch(filterBrandActions.onPriceChange(event.target.value))
   };
 
   const clearPriceHandler = () => {
     // setPriceChange("");
     // ctx.clearPrice([]);
+    dispatch(filterBrandActions.clearPrice([]))
   };
 
   const handleLocationChange = (event) => {
-    setLocation(event.target.value);
-    dispatch(filterBrandActions.onLocationChange(event.target.value))
+    // setLocation(event.target.value);
     // ctx.onLocationChange(event.target.value);
+    dispatch(filterBrandActions.onLocationChange(event.target.value))
   };
 
   const clearLocationHandler = () => {
     // setLocation("");
     // ctx.clearLocation([]);
+    dispatch(filterBrandActions.clearLocation([]))
+
   };
 
   const handleCategoryChange = (event) => {
-    setCategories(event.target.value);
-    dispatch(filterBrandActions.onCategoriesChange(event.target.value))
+    // setCategories(event.target.value);
     // ctx.onCategoriesChange(event.target.value);
+    dispatch(filterBrandActions.onCategoriesChange(event.target.value))
   };
 
   const clearRetailCategoriesHandler = () => {
     // setCategories("");
     // ctx.clearCategories([]);
+    dispatch(filterBrandActions.clearCategories([]))
   };
 
   const clearAllFiltersHandler = () => {
-    // clearSearchHandler();
-    // clearRatingHandler();
-    // clearPriceHandler();
-    // clearLocationHandler();
-    // clearRetailCategoriesHandler();
+    clearSearchHandler();
+    clearRatingHandler();
+    clearPriceHandler();
+    clearLocationHandler();
+    clearRetailCategoriesHandler();
   };
 
   return (

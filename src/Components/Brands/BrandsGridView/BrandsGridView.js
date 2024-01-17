@@ -104,7 +104,7 @@
 // ----------------------implementing same logic via redux ---------------------
 import React from 'react'
 import StarRating from '../../DashBoard/StarRating/StarRating';
-import {useMemo,useEffect } from 'react';
+import {useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
 import { Loader } from '../../../Components//Loader/Loader';
@@ -113,21 +113,21 @@ import { useSelector,useDispatch } from 'react-redux';
 import { fetchBrandData } from '../../../Pages/store/filterBrandActions';
 const BrandsGridView = () => {
   const dispatch = useDispatch();
-
-  // Fetch data when the component mounts
-  useEffect(() => {
-    dispatch(fetchBrandData());
-  }, [dispatch]);
+  const filterBrandsState = useSelector(state => state.filterBrands)
 
   // Select data from the Redux store
   const filteredBrands = useSelector((state) => state.filterBrands.filteredBrands);
   const loading = useSelector((state) => state.filterBrands.isLoading);
 
-  // Check if data is available
-  if (loading) {
-    return <Loader />;
-  }
-  
+  // Fetch data when the component mounts
+  useEffect(() => {
+    if(filterBrandsState.changed){
+      dispatch(fetchBrandData());
+    }
+  }, [dispatch]);
+
+
+
   return (
     
         <div className='row'>
