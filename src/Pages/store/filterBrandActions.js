@@ -1,6 +1,7 @@
 import { filterBrandActions } from "./filterBrand-slice";
 
-export const fetchBrandData = () => {
+export const fetchBrandData = () => {     // this fn is an action creator 
+  
   return async (dispatch) => {
     const fetchData = async () => {
       //NOTE: if we have defined a differnt method for loading , then here we can use that here and then we did not need to define { brandData:[]} only loading payload will be fine
